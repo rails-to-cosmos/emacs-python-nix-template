@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fire = "*"
+
+[dev-packages]
+pyls = "*"
+semgrep = "*"
+ruff-lsp = "*"
+python-lsp-server = "*"
+
+[requires]
+python_version = "3.11"
