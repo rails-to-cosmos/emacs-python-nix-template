@@ -16,4 +16,11 @@
   enterShell = ''
     pipenv install --dev
   '';
+
+  scripts.python3.exec = "pipenv run python3 $@";
+  scripts.python.exec = "pipenv run python3 $@";
+  scripts.py.exec = "pipenv run python3 $@";
+  scripts.semgrep.exec = "pipenv run semgrep $@";
+  scripts.pyls.exec = "pipenv run pylsp $@";
+  scripts.pylsp.exec = "pipenv run pylsp $@";
 }
