@@ -11,6 +11,13 @@ pyls = "*"
 semgrep = "*"
 ruff-lsp = "*"
 python-lsp-server = "*"
+ruff = "*"
+flake8 = "*"
+pycodestyle = "*"
+pylint = "*"
+pycompile = "*"
+mypy = "*"
+pyflakes = "*"
 
 [requires]
 python_version = "3.11"
