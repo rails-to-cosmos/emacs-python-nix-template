@@ -16,6 +16,7 @@
   ];
 
   scripts.wake.exec = ''
+    pyenv install --skip-existing 3.11
     pipenv install --dev
   '';
 
