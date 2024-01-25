@@ -5,8 +5,6 @@ name = "pypi"
 
 [packages]
 fire = "*"
-
-[test-packages]
 pytest = "*"
 pytest-cov = "*"
 types-google-cloud-ndb = "*"
