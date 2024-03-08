@@ -8,19 +8,25 @@
   env.SETUPTOOLS_USE_DISTUTILS = "stdlib";
   env.LANG = "en_US.UTF-8";
 
-  packages = with pkgs; [
-    python311Packages.python
-    pyenv
-    pipenv
-    gcc
-  ];
+  packages = with pkgs; [pyenv gcc];
+
+  enterShell = ''
+    pyenv local 3.11
+  '';
 
   scripts.wake.exec = ''
     pyenv install --skip-existing 3.11
-    pipenv install --dev
+    pyenv local 3.11
+    pyenv exec python -m pip install virtualenv
+    pyenv exec python -m pip install pipenv
+    pyenv exec pipenv install -e .
+    pyenv exec pipenv install --dev
   '';
 
-  scripts.py.exec = "pipenv run python3 $@";
+  scripts.pipenv.exec = "pyenv exec pipenv $@";
+  scripts.run-test.exec = "pipenv run mypy src/mlan";
+  scripts.run-debug.exec = "pipenv run python -m mlan.app +preset=debug";
+  scripts.py.exec = "pipenv run python $@";
   scripts.run.exec = "pipenv run $@";
   scripts.ruff.exec = "pipenv run ruff $@";
   scripts.ruff-lsp.exec = "pipenv run ruff-lsp $@";
