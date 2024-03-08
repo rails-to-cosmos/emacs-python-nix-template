@@ -8,6 +8,8 @@
   env.SETUPTOOLS_USE_DISTUTILS = "stdlib";
   env.LANG = "en_US.UTF-8";
 
+  dotenv.enable = true;
+
   packages = with pkgs; [pyenv gcc];
 
   scripts.wake.exec = ''
