@@ -10,16 +10,12 @@
 
   packages = with pkgs; [pyenv gcc];
 
-  enterShell = ''
-    pyenv local 3.11
-  '';
-
   scripts.wake.exec = ''
     pyenv install --skip-existing 3.11
     pyenv local 3.11
+    pyenv exec python -m pip install --upgrade pip
     pyenv exec python -m pip install virtualenv
     pyenv exec python -m pip install pipenv
-    pyenv exec pipenv install -e .
     pyenv exec pipenv install --dev
   '';
 
