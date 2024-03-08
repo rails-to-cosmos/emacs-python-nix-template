@@ -20,8 +20,6 @@
   '';
 
   scripts.pipenv.exec = "pyenv exec pipenv $@";
-  scripts.run-test.exec = "pipenv run mypy src/mlan";
-  scripts.run-debug.exec = "pipenv run python -m mlan.app +preset=debug";
   scripts.py.exec = "pipenv run python $@";
   scripts.run.exec = "pipenv run $@";
   scripts.ruff.exec = "pipenv run ruff $@";
