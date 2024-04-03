@@ -3,37 +3,49 @@
 {
   env.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
   env.USING_DEFAULT_PYTHON = 0;
-  env.PIPENV_VENV_IN_PROJECT = 1;
-  env.PIPENV_IGNORE_VIRTUALENVS = 1;
   env.SETUPTOOLS_USE_DISTUTILS = "stdlib";
   env.LANG = "en_US.UTF-8";
+  env.PYTHON_VERSION = "3.11";
 
-  dotenv.enable = true;
+  packages = with pkgs; [
+    pyenv
+    gcc
+    jq
+    cmake
+  ];
 
-  packages = with pkgs; [pyenv gcc];
-
-  scripts.wake.exec = ''
-    pyenv install --skip-existing 3.11
-    pyenv local 3.11
-    pyenv exec python -m pip install --upgrade pip
-    pyenv exec python -m pip install virtualenv
-    pyenv exec python -m pip install pipenv
-    pyenv exec pipenv install --dev
+  enterShell = ''
+    pyenv install --skip-existing $PYTHON_VERSION
+    pyenv local $PYTHON_VERSION
   '';
 
-  scripts.pipenv.exec = "pyenv exec pipenv $@";
-  scripts.py.exec = "pipenv run python $@";
-  scripts.run.exec = "pipenv run $@";
-  scripts.ruff.exec = "pipenv run ruff $@";
-  scripts.ruff-lsp.exec = "pipenv run ruff-lsp $@";
-  scripts.semgrep.exec = "pipenv run semgrep $@";
-  scripts.pylsp.exec = "pipenv run pylsp $@";
-  scripts.pyls.exec = "pipenv run pylsp $@";
-  scripts.mypy.exec = "pipenv run mypy $@";
-  scripts.mypy3.exec = "pipenv run mypy $@";
-  scripts.pycodestyle.exec = "pipenv run pycodestyle $@";
-  scripts.pyflakes.exec = "pipenv run pyflakes $@";
-  scripts.flake8.exec = "pipenv run flake8 $@";
-  scripts.pyright.exec = "pipenv run pyright $@";
-  scripts.pylint.exec = "pipenv run pylint $@";
+  scripts.wake.exec = ''
+    pyenv exec python -m pip install --upgrade pip
+    pyenv exec python -m pip install virtualenv
+    pyenv exec python -m pip install poetry
+    pyenv exec poetry install --with dev
+  '';
+
+  scripts.poetry.exec = "pyenv exec poetry $@";
+
+  scripts.run-test.exec = ''
+    set -e
+    poetry run mypy .
+    poetry run pytest . $@
+  '';
+
+  scripts.py.exec = "poetry run python $@";
+  scripts.run.exec = "poetry run $@";
+  scripts.ruff.exec = "poetry run ruff $@";
+  scripts.ruff-lsp.exec = "poetry run ruff-lsp $@";
+  scripts.semgrep.exec = "poetry run semgrep $@";
+  scripts.pylsp.exec = "poetry run pylsp $@";
+  scripts.pyls.exec = "poetry run pylsp $@";
+  scripts.mypy.exec = "poetry run mypy $@";
+  scripts.mypy3.exec = "poetry run mypy $@";
+  scripts.pycodestyle.exec = "poetry run pycodestyle $@";
+  scripts.pyflakes.exec = "poetry run pyflakes $@";
+  scripts.flake8.exec = "poetry run flake8 $@";
+  scripts.pyright.exec = "poetry run pyright $@";
+  scripts.pylint.exec = "poetry run pylint $@";
 }

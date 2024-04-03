@@ -1,10 +1,10 @@
 # emacs-python-nix-template
 
-This repository provides a template for setting up a Python development environment in Emacs, leveraging `pipenv`, `nix`, and Emacs' `python-mode` with `lsp` (Language Server Protocol) integration. This setup aims to streamline the development process and ensure consistent environments across different setups.
+This repository provides a template for setting up a Python development environment in Emacs, leveraging `poetry`, `nix`, and Emacs' `python-mode` with `lsp` (Language Server Protocol) integration. This setup aims to streamline the development process and ensure consistent environments across different setups.
 
 ## Features
 
-1. **Emacs Configuration**: Includes a `.dir-locals.el` file to automatically configure Emacs `python-mode` and `lsp` for use with `pipenv`. This ensures that the python interpreter and language servers (like `semgrep` and `pyls`) are correctly pointed to the virtual environment created by `pipenv`.
+1. **Emacs Configuration**: Includes a `.dir-locals.el` file to automatically configure Emacs `python-mode` and `lsp` for use with `poetry`. This ensures that the python interpreter and language servers (like `semgrep` and `pyls`) are correctly pointed to the virtual environment created by `poetry`.
 
 2. **Pipenv Environment**: A sample `Pipfile` is provided which includes necessary Python language servers and other common dependencies for Python development.
 
@@ -14,16 +14,15 @@ This repository provides a template for setting up a Python development environm
 
 ## Setup Instructions
 
+### Initial setup
+
+1. Run `wake` command to install project dependencies.
+
 ### Emacs Configuration
 
 1. Ensure Emacs is installed with `python-mode` and `lsp-mode`.
 2. Place the `.dir-locals.el` file in the root of your project directory.
-3. Open a Python file within the project, and Emacs will automatically configure the Python environment and LSP settings based on `pipenv`.
-
-### Pipenv Environment
-
-1. Install `pipenv` if not already installed.
-2. Use the provided `Pipfile` as a base and run `pipenv install` to create a virtual environment with all necessary dependencies and language servers.
+3. Open a Python file within the project, and Emacs will automatically configure the Python environment and LSP settings based on `poetry`.
 
 ### Nix Development Environment
 
