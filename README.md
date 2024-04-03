@@ -6,7 +6,7 @@ This repository provides a template for setting up a Python development environm
 
 1. **Emacs Configuration**: Includes a `.dir-locals.el` file to automatically configure Emacs `python-mode` and `lsp` for use with `poetry`. This ensures that the python interpreter and language servers (like `semgrep` and `pyls`) are correctly pointed to the virtual environment created by `poetry`.
 
-2. **Pipenv Environment**: A sample `Pipfile` is provided which includes necessary Python language servers and other common dependencies for Python development.
+2. **Poetry Environment**: A sample `pyproject.toml` is provided which includes necessary Python language servers and other common dependencies for Python development.
 
 3. **Nix Development Environment**: A `devenv.nix` file is included to manage system libraries and environment variables specific to the project. This aids in creating a reproducible development environment.
 
