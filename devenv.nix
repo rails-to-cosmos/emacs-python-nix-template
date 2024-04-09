@@ -5,7 +5,7 @@
   env.USING_DEFAULT_PYTHON = 0;
   env.SETUPTOOLS_USE_DISTUTILS = "stdlib";
   env.LANG = "en_US.UTF-8";
-  env.PYTHON_VERSION = "3.11";
+  env.PYTHON_VERSION = "3.12";
 
   packages = with pkgs; [
     pyenv
