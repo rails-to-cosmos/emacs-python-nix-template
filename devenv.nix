@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   packages = with pkgs; [
     python311Full
     python311Packages.virtualenv
@@ -9,7 +8,7 @@
 
   enterShell = ''
     virtualenv .venv
-    source .venv/bin/activate
+    source $DEVENV_ROOT/.venv/bin/activate
     pip install poetry
     poetry install --with dev
   '';
