@@ -1,32 +1,18 @@
 { pkgs, ... }:
 
 {
-  env.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
-  env.USING_DEFAULT_PYTHON = 0;
-  env.SETUPTOOLS_USE_DISTUTILS = "stdlib";
-  env.LANG = "en_US.UTF-8";
-  env.PYTHON_VERSION = "3.12";
 
   packages = with pkgs; [
-    pyenv
-    gcc
-    jq
-    cmake
+    python311Full
+    python311Packages.virtualenv
   ];
 
   enterShell = ''
-    pyenv install --skip-existing $PYTHON_VERSION
-    pyenv local $PYTHON_VERSION
+    virtualenv .venv
+    source .venv/bin/activate
+    pip install poetry
+    poetry install --with dev
   '';
-
-  scripts.wake.exec = ''
-    pyenv exec python -m pip install --upgrade pip
-    pyenv exec python -m pip install virtualenv
-    pyenv exec python -m pip install poetry
-    pyenv exec poetry install --with dev
-  '';
-
-  scripts.poetry.exec = "pyenv exec poetry $@";
 
   scripts.run-test.exec = ''
     set -e
