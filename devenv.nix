@@ -10,13 +10,10 @@
     virtualenv .venv
     source $DEVENV_ROOT/.venv/bin/activate
     pip install poetry
-    poetry install --with dev
   '';
 
-  scripts.run-test.exec = ''
-    set -e
-    poetry run mypy .
-    poetry run pytest . $@
+  scripts.wake.exec = ''
+    poetry install --with dev
   '';
 
   scripts.py.exec = "poetry run python $@";
