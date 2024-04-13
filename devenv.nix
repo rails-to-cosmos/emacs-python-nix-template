@@ -1,9 +1,14 @@
 { pkgs, ... }:
 
 {
+  env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc.lib];
+
   packages = with pkgs; [
     python312Full
     python312Packages.virtualenv
+
+    zlib
+    stdenv.cc.cc
   ];
 
   enterShell = ''
