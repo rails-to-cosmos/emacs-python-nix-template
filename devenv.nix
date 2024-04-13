@@ -9,10 +9,10 @@
   enterShell = ''
     virtualenv .venv
     source $DEVENV_ROOT/.venv/bin/activate
-    pip install poetry
   '';
 
   scripts.wake.exec = ''
+    pip install poetry
     poetry install --with dev
   '';
 
