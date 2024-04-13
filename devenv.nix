@@ -16,8 +16,6 @@
     poetry install --with dev
   '';
 
-  scripts.py.exec = "poetry run python $@";
-  scripts.run.exec = "poetry run $@";
   scripts.ruff.exec = "poetry run ruff $@";
   scripts.ruff-lsp.exec = "poetry run ruff-lsp $@";
   scripts.semgrep.exec = "poetry run semgrep $@";
