@@ -2,8 +2,8 @@
 
 {
   packages = with pkgs; [
-    python311Full
-    python311Packages.virtualenv
+    python312Full
+    python312Packages.virtualenv
   ];
 
   enterShell = ''
