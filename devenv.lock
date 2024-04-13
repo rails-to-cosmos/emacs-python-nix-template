@@ -3,11 +3,11 @@
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1712662014,
+        "lastModified": 1712947379,
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "3c84a0fc1afcff3a9e2d8a3a9a9fafcfb612e8f7",
-        "treeHash": "38875a895349f4f572de494477548b324137cdca",
+        "rev": "7ddfa994a3fa5281fca44abded7a9891b22bf5c8",
+        "treeHash": "dea796da377ee9b54474d3107b1f16c819f06d30",
         "type": "github"
       },
       "original": {
@@ -74,27 +74,27 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1712588820,
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d272ca50d1f7424fbfcd1e6f1c9e01d92f6da167",
-        "treeHash": "46d0c368a409db54e5935811bbeed3a0824aeca7",
+        "lastModified": 1710796454,
+        "owner": "cachix",
+        "repo": "devenv-nixpkgs",
+        "rev": "06fb0f1c643aee3ae6838dda3b37ef0abc3c763b",
+        "treeHash": "9bb13f7f39e825a5d91bbe4139fbc129243b907d",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.11",
-        "repo": "nixpkgs",
+        "owner": "cachix",
+        "ref": "rolling",
+        "repo": "devenv-nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1712588820,
+        "lastModified": 1712741485,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d272ca50d1f7424fbfcd1e6f1c9e01d92f6da167",
-        "treeHash": "46d0c368a409db54e5935811bbeed3a0824aeca7",
+        "rev": "b2cf36f43f9ef2ded5711b30b1f393ac423d8f72",
+        "treeHash": "052a57ae3e06d1ca96ddad52cbbca85fcfa303b4",
         "type": "github"
       },
       "original": {
@@ -115,11 +115,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1712579741,
+        "lastModified": 1712897695,
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "70f504012f0a132ac33e56988e1028d88a48855c",
-        "treeHash": "63b6fd50c596ad107a487ad67a225ce7685929bd",
+        "rev": "40e6053ecb65fcbf12863338a6dcefb3f55f1bf8",
+        "treeHash": "9ba338feee8e6b2193c305f46b65b0fef49816b7",
         "type": "github"
       },
       "original": {
