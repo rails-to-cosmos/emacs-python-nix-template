@@ -22,7 +22,6 @@
   '';
 
   scripts.init.exec = ''
-    virtualenv .venv
     pip install poetry
     poetry add pytest mypy flake8 pdbpp pycodestyle pycompile pyflakes pylint python-lsp-server ruff ruff-lsp semgrep pytest-html types-pyyaml boto3-stubs --group=dev
     poetry install --with dev
