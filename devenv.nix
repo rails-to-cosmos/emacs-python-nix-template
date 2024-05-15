@@ -13,6 +13,7 @@
   ];
 
   enterShell = ''
+    virtualenv $DEVENV_ROOT/.venv
     source $DEVENV_ROOT/.venv/bin/activate
   '';
 
