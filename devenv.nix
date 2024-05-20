@@ -25,10 +25,14 @@
   '';
 
   enterTest = ''
+    virtualenv $DEVENV_ROOT/.venv
+
     mypy src
   '';
 
   scripts.init.exec = ''
+    virtualenv $DEVENV_ROOT/.venv
+
     pip install poetry
     poetry init
 
@@ -36,10 +40,14 @@
   '';
 
   scripts.install-dev.exec = ''
+    virtualenv $DEVENV_ROOT/.venv
+
     poetry install --with dev
   '';
 
   scripts.install-prod.exec = ''
+    virtualenv $DEVENV_ROOT/.venv
+
     poetry install
   '';
 }
