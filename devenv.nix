@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc.lib];
+  env.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib";
 
   packages = with pkgs; [
     python312Full
@@ -9,6 +9,7 @@
     python312Packages.pandas
 
     zlib
+    glibc
     stdenv.cc.cc
   ];
 
